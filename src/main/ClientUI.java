@@ -1,5 +1,10 @@
 package main;
 
+import main.Models.Item;
+import main.Services.CartService;
+import main.Services.GroceryStoreService;
+import main.Services.UserService;
+
 import java.util.List;
 import java.util.Scanner;
 

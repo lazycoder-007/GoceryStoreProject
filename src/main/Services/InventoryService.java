@@ -1,4 +1,6 @@
-package main;
+package main.Services;
+
+import main.Models.Item;
 
 import java.util.ArrayList;
 import java.util.HashMap;

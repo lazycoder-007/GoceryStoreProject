@@ -1,4 +1,6 @@
-package main;
+package main.Services;
+
+import main.Models.Item;
 
 import java.util.List;
 
@@ -6,8 +8,7 @@ public class GroceryStoreService {
 
     private InventoryService inventoryService = InventoryService.getInstance();
 
-    public void addItemToInventory(Item item)
-    {
+    public void addItemToInventory(Item item) {
         inventoryService.addItem(item);
     }
 
@@ -19,11 +20,11 @@ public class GroceryStoreService {
         }
     }
 
-    public void updateItemPrice(Integer itemId, Double price) throws Exception{
+    public void updateItemPrice(Integer itemId, Double price) throws Exception {
         inventoryService.updateItemPrice(itemId, price);
     }
 
-    public void updateItemQuantity(Integer itemId, Integer quantity) throws Exception{
+    public void updateItemQuantity(Integer itemId, Integer quantity) throws Exception {
         inventoryService.updateItemQuantity(itemId, quantity);
     }
 }

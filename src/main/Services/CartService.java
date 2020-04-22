@@ -1,11 +1,14 @@
-package main;
+package main.Services;
+
+import main.Models.Item;
+import main.Models.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class CartService {
+public class CartService {
 
     private static CartService cartService;
     private InventoryService inventoryService = InventoryService.getInstance();

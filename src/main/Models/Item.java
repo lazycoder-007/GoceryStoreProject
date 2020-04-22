@@ -1,4 +1,4 @@
-package main;
+package main.Models;
 
 public class Item {
     private Integer pid;

@@ -1,4 +1,4 @@
-package main;
+package main.Models;
 
 public class User {
     private String name;
@@ -35,12 +35,12 @@ public class User {
         this.walletAmount = walletAmount;
     }
 
-    void decreaseWalletAmount(Double value)
+    public void decreaseWalletAmount(Double value)
     {
         this.walletAmount = this.walletAmount - value;
     }
 
-    void increaseWalletAmount(Double value)
+    public void increaseWalletAmount(Double value)
     {
         this.walletAmount = this.walletAmount + value;
     }

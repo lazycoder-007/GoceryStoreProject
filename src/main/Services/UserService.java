@@ -1,15 +1,17 @@
-package main;
+package main.Services;
+
+import main.Models.User;
 
 public class UserService {
 
-    static private UserService userService = null;
+    private static UserService userService = null;
 
-    User currentUser;
+    private User currentUser;
 
     private UserService() {
     }
 
-    static UserService getInstance() {
+    public static UserService getInstance() {
         if (userService == null) {
             userService = new UserService();
             return userService;
@@ -17,11 +19,11 @@ public class UserService {
         return userService;
     }
 
-    void createUser(String name, String address, Double walletAmount) {
+    public void createUser(String name, String address, Double walletAmount) {
         currentUser = new User(name, address, walletAmount);
     }
 
-    User getUser() {
+    public User getUser() {
         return currentUser;
     }
 }
