@@ -2,32 +2,25 @@ package com.project.groceryStore.services;
 
 import com.project.groceryStore.models.Item;
 import com.project.groceryStore.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class CartService {
 
-    private static CartService cartService;
-    private InventoryService inventoryService = InventoryService.getInstance();
-    private UserService userService = UserService.getInstance();
+    @Autowired
+    private InventoryService inventoryService;
 
-    private CartService() {
-    }
+    @Autowired
+    private UserService userService;
 
     private Integer itemId = 0;
     private Map<Integer, Item> itemStorage = new HashMap<>();
-
-
-    public static CartService getInstance() {
-        if (cartService == null) {
-            cartService = new CartService();
-            return cartService;
-        }
-        return cartService;
-    }
 
     public Integer addProductToCartByBrandAndCategory(String brand, String category) throws Exception {
         Item item = inventoryService.getItemByBrandAndCategory(brand, category);

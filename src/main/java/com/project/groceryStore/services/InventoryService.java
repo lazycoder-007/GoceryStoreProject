@@ -1,27 +1,17 @@
 package com.project.groceryStore.services;
 
 import com.project.groceryStore.models.Item;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Service
 public class InventoryService {
-    private static InventoryService inventoryService = null;
+
     private static HashMap<Integer, Item> itemStorage = new HashMap<>();
     private static Integer itemId = 0;
-
-    private InventoryService() {
-    }
-
-    public static InventoryService getInstance() {
-        if (inventoryService == null) {
-            initStoreItems();
-            inventoryService = new InventoryService();
-            return inventoryService;
-        }
-        return inventoryService;
-    }
 
     private static void initStoreItems() {
         String[] productNames = {"Soap", "Face Cream", "Garam Masala"};

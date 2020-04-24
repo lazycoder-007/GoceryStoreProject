@@ -1,9 +1,11 @@
 package com.project.groceryStore;
 
 import com.project.groceryStore.models.Item;
+import com.project.groceryStore.models.User;
 import com.project.groceryStore.services.CartService;
 import com.project.groceryStore.services.GroceryStoreService;
 import com.project.groceryStore.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Scanner;
@@ -11,9 +13,14 @@ import java.util.Scanner;
 public class ClientUI {
     private Scanner scanner = new Scanner(System.in);
 
-    private UserService userService = UserService.getInstance();
-    private CartService cartService = CartService.getInstance();
-    private GroceryStoreService groceryStoreService = new GroceryStoreService();
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private CartService cartService;
+
+    @Autowired
+    private GroceryStoreService groceryStoreService;
 
     void main(String[] args) {
         ClientUI clientUI = new ClientUI();
@@ -29,7 +36,8 @@ public class ClientUI {
         String address = scanner.nextLine();
         System.out.println("Enter wallet amount");
         Double walletAmount = scanner.nextDouble();
-        userService.createUser(name, address, walletAmount);
+        User user = new User(name, address, walletAmount);
+        userService.createUser(user);
     }
 
     private void displayOptions() {
