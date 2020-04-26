@@ -56,7 +56,7 @@ public class ClientUI {
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    groceryStoreService.displayStoreProducts();
+                    displayStoreProducts();
                     break;
                 case 2:
                     storeProductsOptions();
@@ -71,6 +71,14 @@ public class ClientUI {
                     break;
             }
         } while (choice >= 1 && choice <= 3);
+    }
+
+    private void displayStoreProducts() {
+        List<Item> items = groceryStoreService.getStoreProducts();
+        for (Item prod : items) {
+            System.out.println(prod.getPid() + "- " + prod.getCategory() + ", " + prod.getBrand() + ", " +
+                    prod.getPrice() + ", " + prod.getStock());
+        }
     }
 
 

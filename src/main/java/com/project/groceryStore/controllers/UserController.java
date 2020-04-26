@@ -18,8 +18,8 @@ public class UserController {
         userService.createUser(user);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "")
-    public User getUser() {
-        return userService.getUser();
+    @RequestMapping(method = RequestMethod.GET, value = "?name={name}")
+    public User getUser(@RequestParam String name) throws Exception {
+        return userService.getUser(name);
     }
 }

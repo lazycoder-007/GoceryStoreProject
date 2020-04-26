@@ -3,6 +3,7 @@ package com.project.groceryStore.services;
 import com.project.groceryStore.models.Item;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +13,11 @@ public class InventoryService {
 
     private static HashMap<Integer, Item> itemStorage = new HashMap<>();
     private static Integer itemId = 0;
+
+    @PostConstruct
+    public void init() {
+        initStoreItems();
+    }
 
     private static void initStoreItems() {
         String[] productNames = {"Soap", "Face Cream", "Garam Masala"};

@@ -24,7 +24,7 @@ public class CartService {
 
     public Integer addProductToCartByBrandAndCategory(String brand, String category) throws Exception {
         Item item = inventoryService.getItemByBrandAndCategory(brand, category);
-        User user = userService.getUser();
+        User user = userService.getCurrentUser();
         if (item.getPrice() <= user.getWalletAmount()) {
             itemStorage.put(itemId++, item);
             user.decreaseWalletAmount(item.getPrice());
@@ -35,7 +35,7 @@ public class CartService {
 
     public Integer addProductCartByItemId(Integer Id) throws Exception {
         Item item = inventoryService.getItemById(Id);
-        if (item.getPrice() <= userService.getUser().getWalletAmount()) {
+        if (item.getPrice() <= userService.getCurrentUser().getWalletAmount()) {
             itemStorage.put(itemId++, item);
             return itemId;
         }
@@ -51,7 +51,7 @@ public class CartService {
             throw new Exception();
         }
         Item item = itemStorage.get(itemId);
-        User user = userService.getUser();
+        User user = userService.getCurrentUser();
         user.increaseWalletAmount(item.getPrice());
         itemStorage.remove(itemId);
     }

@@ -16,12 +16,8 @@ public class GroceryStoreService {
         inventoryService.addItem(item);
     }
 
-    public void displayStoreProducts() {
-        List<Item> items = inventoryService.getItems();
-        for (Item prod : items) {
-            System.out.println(prod.getPid() + "- " + prod.getCategory() + ", " + prod.getBrand() + ", " +
-                    prod.getPrice() + ", " + prod.getStock());
-        }
+    public List<Item> getStoreProducts() {
+        return inventoryService.getItems();
     }
 
     public void updateItemPrice(Integer itemId, Double price) throws Exception {
