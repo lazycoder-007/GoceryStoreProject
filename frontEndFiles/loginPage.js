@@ -1,26 +1,35 @@
 function login()
-{
+{	
 	var name = document.getElementById("idName").value;
 	var city = document.getElementById("idCity").value;
 	var walletAmount = document.getElementById("idWalletAmount").value;
 	
+	if(name == "" || city == "" || walletAmount == "") 
+	{
+		window.alert("Values cannot be empty");
+		return;
+	}
+	
 	var baseURL = "http://127.0.0.1:8080/user";
 	var logiUrl = baseURL + "/login";
 	var jsonInput = JSON.stringify({"name":name,"address": city,"walletAmount":walletAmount});
-	var user = new User(name, city, walletAmount);
 	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4)
+		{
+			if(this.status == 200)
+			{
+				location.replace("mainGroceryStorePage.html");				
+			}
+			else
+			{
+				window.alert("Server is Down. Please try again later!!!");
+			}
+		}
+	};
 	xhttp.open("POST", logiUrl, true);
 	xhttp.setRequestHeader('Content-Type', 'application/json');
 	xhttp.send(jsonInput);
-}
-class User
-{
-	constructor(name,address, walletAmount)
-	{
-		this.name = name;
-		this.address = address;
-		this.walletAmount = walletAmount;
-	}
 }
 
 function getCurrentUser()

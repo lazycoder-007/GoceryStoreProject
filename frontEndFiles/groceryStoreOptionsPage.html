@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Grocery Store Options</title>
+    <meta lang="en-US">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+<h1> Grocery Store Options</h1>
+<nav>
+    <button class=navElement onclick=displayStoreInventory()>Home</button>
+    <button class=navElement onclick=openGroceryStoreOptionsPage()>Grocery Store</button>
+    <button class=navElement onclick=displayCart()>Cart</button>
+    <button class=navElement onclick=logOut()>Log Out</button>
+</nav>
+<table>
+    <tr>
+        <th text align="centre" colspan="2"><h2>Add Item To Inventory</h2></th>
+        <br/><br/>
+    </tr>
+    <tr>
+        <th>Brand</th>
+        <th><input type="text" id="idBrand" required></th>
+    </tr>
+    <tr>
+        <th>Category</th>
+        <th><input type="text" id="idCategory" required></th>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <th><input type="number" id="idPrice" required></th>
+    </tr>
+    <tr>
+        <th>Quantity</th>
+        <th><input type="number" id="idQuantity" required></th>
+    </tr>
+    <tr>
+        <th text align="centre" colspan="2">
+            <button class="loginButton" type="button">Add Item</button>
+        </th>
+    </tr>
+</table>
+<script src="mainGroceryStorePage.js"></script>
+</body>
+</html>

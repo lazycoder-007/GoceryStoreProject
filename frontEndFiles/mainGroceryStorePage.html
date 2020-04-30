@@ -1,41 +1,128 @@
 <!DOCTYPE html>
-
-
 <html>
-
 <head>
-
-    <title> Grocery Store Main Page </title>
-    <h1 style="text-align:center"> Grocery Store </h1>
-
+    <title> Grocery Store </title>
+    <meta lang="en-US">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
-<body style="background-color:powderblue;">
-<h4 style="text-align:center">Welcom to Grocery Store. Please choose your options </h4>
+<body>
+<h1> Grocery Store </h1>
+<nav id=navigation>
+    <button class=navElement onclick=displayStoreInventory()>Home</button>
+    <button class=navElement onclick=openGroceryStoreOptionsPage()>Grocery Store</button>
+    <button class=navElement onclick=displayCart()>Cart</button>
+    <button class=navElement onclick=logOut()>Log Out</button>
+</nav>
 
-<button onclick="displayStoreInventory()">Display Store Inventory</button>
-<br><br>
-<button onclick="addItemToInventory()">Add Item to inventory</button>
-<br><br>
-<button onclick="updateItemByPrice()">Update Item by Price</button>
-<br><br>
-<button onclick="displayCart()">Display Cart</button>
-<br><br>
-<button onclick="addToCartUsingBranfAndCategory()">Add to cart using Brand and Category</button>
-<br><br>
-<button onclick="addToCartUsingItemId()">Add to cart using Item Id</button>
-<br><br>
-<button onclick="removeItemFromCartUsingItemId()">Remove Item from Cart</button>
-<br><br>
-<button onclick="logOut()">Log Out</button>
-<br><br><br><br>
+<div id=container>
+    <div id=idDisplayStore style="display:block;">
+    </div>
 
-<p id="idDisplayStore"></p>
+    <div id=idGroceryStoreOptions style="display:none;">
+        <div id=idGroceryStoreMenu>
+            <ul>
+                <li>
+                    <button onclick=showAddItemToGrocery()>Add Item To Grocery</button>
+                </li>
+                <li>
+                    <button onclick=showUpdateItemPrice()>Update Item Price</button>
+                </li>
+                <li>
+                    <button onclick=showUpdateItemQuantity()>Update Item Quantity</button>
+                </li>
+            </ul>
+        </div>
+
+        <div id=idAddItemToGorcery style="display:block;">
+            <table>
+                <tr>
+                    <th text align="centre" colspan="2"><h2>Add Item To Grocery</h2></th>
+                    <br/><br/>
+                </tr>
+                <tr>
+                    <th>Brand</th>
+                    <th><input type="text" id="idBrand" required></th>
+                </tr>
+                <tr>
+                    <th>Category</th>
+                    <th><input type="text" id="idCategory" required></th>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <th><input type="number" id="idPrice" required></th>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+                    <th><input type="number" id="idQuantity" required></th>
+                </tr>
+                <tr>
+                    <th text align="centre" colspan="2">
+                        <button class="loginButton" type="button" onclick="addItemToGorcery()">Add Item</button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+
+        <div id=idUpdateItemPrice style="display:none;">
+            <table>
+                <tr>
+                    <th text align="centre" colspan="2"><h2>Update Item Price</h2></th>
+                    <br/><br/>
+                </tr>
+                <tr>
+                    <th>Brand</th>
+                    <th><input type="text" id="idUpdateBrand" required></th>
+                </tr>
+                <tr>
+                    <th>Category</th>
+                    <th><input type="text" id="idUpdateCategory" required></th>
+                </tr>
+                <tr>
+                    <th>New Price</th>
+                    <th><input type="number" id="idUpdatePrice" required></th>
+                </tr>
+                <tr>
+                    <th text align="centre" colspan="2">
+                        <button class="loginButton" type="button" onclick="updateItemPrice()">Update Item Price</button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+
+        <div id=idUpdateItemQuantity style="display:none;">
+            <table>
+                <tr>
+                    <th text align="centre" colspan="2"><h2>Update Item Quantity</h2></th>
+                    <br/><br/>
+                </tr>
+                <tr>
+                    <th>Brand</th>
+                    <th><input type="text" id="idUpdBrand" required></th>
+                </tr>
+                <tr>
+                    <th>Category</th>
+                    <th><input type="text" id="idUpdCategory" required></th>
+                </tr>
+                <tr>
+                    <th>New Quantity</th>
+                    <th><input type="number" id="idUpQuantity" required></th>
+                </tr>
+                <tr>
+                    <th text align="centre" colspan="2">
+                        <button class="loginButton" type="button" onclick="updateItemQuantity()">Update Item Quantity
+                        </button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 
 <script src="mainGroceryStorePage.js"></script>
-
 </body>
-
 </html>
 
 
