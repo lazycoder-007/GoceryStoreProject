@@ -1,16 +1,12 @@
-h1 {
-	color: #2196F3;
-	text-align: center;
-	font-size: 60px;
-}
-
 nav {
 	position:sticky;
 	top:0px;
 	font-size: 22px;
 	font-style: italic;
 	font-weight: bold;
-	width=100%;
+	width:100%;
+	margin:0px;
+	padding:0px;
 }
 
 .navElement {
@@ -18,6 +14,7 @@ nav {
 	background-color:white;
 	border-radius:5px;
 	margin:20px;
+	margin-top:0px;
 	padding:10px;
 	width:20%;
 }
