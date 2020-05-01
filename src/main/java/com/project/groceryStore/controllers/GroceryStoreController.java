@@ -24,4 +24,9 @@ public class GroceryStoreController {
     public void addItemToInventory(@RequestBody Item item) {
         groceryStoreService.addItemToInventory(item);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/{itemId}/{price}")
+    public void updateItemPrice(@RequestParam Integer itemId, @RequestParam Double price) throws Exception {
+        groceryStoreService.updateItemPrice(itemId, price);
+    }
 }
