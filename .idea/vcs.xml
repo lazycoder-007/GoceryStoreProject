@@ -2,6 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/GroceryStoreProject_frontend_javascript" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/GroceryStoreProject_Backend_javas" vcs="Git" />
   </component>
 </project>
